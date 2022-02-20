@@ -14,7 +14,8 @@ public class App
         Producer producer=new Producer();
         producer.setProperties();
         producer.createProducer();
-        producer.createRecord("Sending first record to kafka !");
-        producer.sendMessageToTopic();
+        producer.createRecord("Sending second record to kafka !");
+        //producer.sendMessageToTopic();
+        producer.sendMessageToTopicWithCallback();
     }
 }
