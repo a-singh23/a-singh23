@@ -1,4 +1,4 @@
-package org.example;
+package guru.baithak.example.kafka.beginner;
 
 public class ConsumerApp {
 

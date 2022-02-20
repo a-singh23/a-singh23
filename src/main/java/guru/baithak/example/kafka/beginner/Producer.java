@@ -1,4 +1,4 @@
-package org.example;
+package guru.baithak.example.kafka.beginner;
 
 import org.apache.kafka.clients.producer.*;
 import org.apache.kafka.common.serialization.StringSerializer;
