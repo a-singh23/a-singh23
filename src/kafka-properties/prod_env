@@ -1,0 +1,34 @@
+ACKNOWLEDGEMENT:
+    acks=all
+    min.insync.replicas
+
+STRONGEST GUARANTEE:
+    acks=all, replication-factor=3, min.insync.replicas=2
+
+MESSAGE NOT LOST WHEN TRANSIENT:
+    retries
+    delivery.timeout.ms
+
+DUPLICATE MESSAGE PROBLEM:
+    Idempotent Producer
+
+####SAFE Producer
+
+PRODUCER COMPRESSION
+    compression.type
+
+PRODUCR BATCHING
+    linger.ms
+    batch.size (DEFAULT 16KB, good metric 32KB / 64KB)
+
+#######HIGH THROUGHPUT PRODUCER
+
+DEFAULT PARTITIONER AND KEY HASHING
+
+DEFAULT PARTITIONER: MURMUR2
+    CAN HAVE CUSTOM PARTITIONER
+
+PRODUCER produces more data than the buffer size:
+    max.block.ms (1 minute default)
+    buffer.memory (32MB default)
+
