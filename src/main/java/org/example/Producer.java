@@ -39,8 +39,14 @@ public class Producer {
         //Create a Producer record
         record = new ProducerRecord(TOPIC_NAME,message);
 
+    }
+
+    void createRecord(String key, String message) {
+        //Create a Producer record
+        record = new ProducerRecord(TOPIC_NAME,key,message);
 
     }
+
     void sendMessageToTopic() {
         producer.send(record);
         producer.flush();
