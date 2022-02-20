@@ -4,12 +4,12 @@ package org.example;
  * Hello world!
  *
  */
-public class App 
+public class ProducerApp
 {
     public static void main( String[] args )
     {
 
-        System.out.println( "Kafka Demo " );
+        System.out.println( "Kafka Producer Demo ! " );
 
         Producer producer=new Producer();
         producer.setProperties();
