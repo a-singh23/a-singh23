@@ -3,6 +3,7 @@ package guru.baithak.example.kafka.beginner;
 import org.apache.kafka.clients.producer.*;
 import org.apache.kafka.common.serialization.StringSerializer;
 import org.apache.log4j.Logger;
+import org.slf4j.event.Level;
 
 
 import java.util.Properties;
@@ -20,6 +21,7 @@ public class Producer {
 
     public Producer(){
         properties=new Properties();
+
     }
 
     void setProperties() {
@@ -27,6 +29,19 @@ public class Producer {
         properties.setProperty(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class.getName());
         properties.setProperty(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, StringSerializer.class.getName());
         logger.info("Properties set");
+    }
+
+    void setSafeProducerProperties() {
+        properties.setProperty("bootstrap.servers", BOOTSTRAP_SERVER);
+        properties.setProperty(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class.getName());
+        properties.setProperty(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, StringSerializer.class.getName());
+        properties.setProperty(ProducerConfig.ENABLE_IDEMPOTENCE_CONFIG, "true");
+        properties.setProperty(ProducerConfig.ACKS_CONFIG,"all");
+        properties.setProperty(ProducerConfig.RETRIES_CONFIG,Integer.toString(Integer.MAX_VALUE));
+        properties.setProperty(ProducerConfig.MAX_IN_FLIGHT_REQUESTS_PER_CONNECTION,"5");
+        properties.setProperty(ProducerConfig.RETRY_BACKOFF_MS_CONFIG,"180000");
+
+        logger.info("Safe Producer Properties set");
     }
 
     void createProducer() {
